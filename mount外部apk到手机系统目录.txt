@@ -1,0 +1,30 @@
+mount -o remount,rw /dev/block/mtdblock3 /system
+这个命令的意思是remount是重新挂载的意思。r表示read。w表示write就是读写的意思。然后后面跟着的是分区的路径,路径为/dev/block/mtdblock3;再就是要挂载在根目录下面,并且命名为system.
+
+2.3的手机挂载
+mount -o remount,rw /dev/block/mtdblock3 /system
+
+2.3修改成root所有
+chown root.root ***.apk
+
+====================================================
+
+4.0的手机挂载
+mount -o remount,rw /system
+
+4.0及以上改成root
+chown root:root ***.apk
+
+
+
+将电脑上的apk文件push到手机/system/app或/system/priv-app目录下面
+1. root手机,成功root后才能push到系统目录
+2. windows下打开两个dos窗口,暂时命名为窗口A和窗口B
+3. 进入窗口A，执行adb shell,再执行su,进入超级用户组
+4. mount -o remount,rw /system挂载手机/system目录为可读写,2.3的请看上面。
+5. 执行chmod 777 /system，将/system目录修改成可读可写
+6. 在窗口B执行adb push ***.apk /sdcard/,将apk文件push到手机sdcard目录
+7. 执行mv ***.apk /system/app/或mv ***.apk /system/priv-app,将apk文件拷贝到系统应用目录
+8. 执行chmod 644 ***.apk,修改***.apk的权限
+9. 执行chown root:root ***.apk修改***.apk的使用者和拥有者,2.3的请看上面。
+10. 重新启动手机
