@@ -1,30 +1,30 @@
 mount -o remount,rw /dev/block/mtdblock3 /system
-Õâ¸öÃüÁîµÄÒâË¼ÊÇremountÊÇÖØĞÂ¹ÒÔØµÄÒâË¼¡£r±íÊ¾read¡£w±íÊ¾write¾ÍÊÇ¶ÁĞ´µÄÒâË¼¡£È»ºóºóÃæ¸ú×ÅµÄÊÇ·ÖÇøµÄÂ·¾¶,Â·¾¶Îª/dev/block/mtdblock3;ÔÙ¾ÍÊÇÒª¹ÒÔØÔÚ¸ùÄ¿Â¼ÏÂÃæ,²¢ÇÒÃüÃûÎªsystem.
+mountæŒ‚æ¥ï¼Œremountæ˜¯é‡æ–°æŒ‚æ¥ã€‚"-o"è¯´æ˜æŒ‚æ¥çš„æ–¹å¼ï¼Œ"r"è¡¨ç¤ºè¯»,"w"è¡¨ç¤ºå†™,"rw"å°±æ˜¯è¯»å†™ã€‚åé¢è·Ÿè®¾å¤‡(device)è·¯å¾„,è·¯å¾„ä¸º"/dev/block/mtdblock3";æŒ‚æ¥åœ¨ç³»ç»Ÿä¸‹çš„ç›®å½•"/system".
 
-2.3µÄÊÖ»ú¹ÒÔØ
+2.3çš„æ‰‹æœºæŒ‚æ¥
 mount -o remount,rw /dev/block/mtdblock3 /system
 
-2.3ĞŞ¸Ä³ÉrootËùÓĞ
+2.3ä¿®æ”¹æˆrootæ‰€æœ‰
 chown root.root ***.apk
 
 ====================================================
 
-4.0µÄÊÖ»ú¹ÒÔØ
+4.0çš„æ‰‹æœºæŒ‚æ¥
 mount -o remount,rw /system
 
-4.0¼°ÒÔÉÏ¸Ä³Éroot
+4.0åŠä»¥ä¸Šæ”¹æˆroot
 chown root:root ***.apk
 
 
 
-½«µçÄÔÉÏµÄapkÎÄ¼şpushµ½ÊÖ»ú/system/app»ò/system/priv-appÄ¿Â¼ÏÂÃæ
-1. rootÊÖ»ú,³É¹¦rootºó²ÅÄÜpushµ½ÏµÍ³Ä¿Â¼
-2. windowsÏÂ´ò¿ªÁ½¸ödos´°¿Ú,ÔİÊ±ÃüÃûÎª´°¿ÚAºÍ´°¿ÚB
-3. ½øÈë´°¿ÚA£¬Ö´ĞĞadb shell,ÔÙÖ´ĞĞsu,½øÈë³¬¼¶ÓÃ»§×é
-4. mount -o remount,rw /system¹ÒÔØÊÖ»ú/systemÄ¿Â¼Îª¿É¶ÁĞ´,2.3µÄÇë¿´ÉÏÃæ¡£
-5. Ö´ĞĞchmod 777 /system£¬½«/systemÄ¿Â¼ĞŞ¸Ä³É¿É¶Á¿ÉĞ´
-6. ÔÚ´°¿ÚBÖ´ĞĞadb push ***.apk /sdcard/,½«apkÎÄ¼şpushµ½ÊÖ»úsdcardÄ¿Â¼
-7. Ö´ĞĞmv ***.apk /system/app/»òmv ***.apk /system/priv-app,½«apkÎÄ¼ş¿½±´µ½ÏµÍ³Ó¦ÓÃÄ¿Â¼
-8. Ö´ĞĞchmod 644 ***.apk,ĞŞ¸Ä***.apkµÄÈ¨ÏŞ
-9. Ö´ĞĞchown root:root ***.apkĞŞ¸Ä***.apkµÄÊ¹ÓÃÕßºÍÓµÓĞÕß,2.3µÄÇë¿´ÉÏÃæ¡£
-10. ÖØĞÂÆô¶¯ÊÖ»ú
+å°†ç”µè„‘ä¸Šçš„apkæ–‡ä»¶pushåˆ°æ‰‹æœº/system/appæˆ–/system/priv-appç›®å½•ä¸‹é¢
+1. rootæ‰‹æœº,æˆåŠŸrootåæ‰èƒ½pushåˆ°ç³»ç»Ÿç›®å½•
+2. windowsä¸‹æ‰“å¼€ä¸¤ä¸ªdosçª—å£,æš‚æ—¶å‘½åä¸ºçª—å£Aå’Œçª—å£B
+3. è¿›å…¥çª—å£Aï¼Œæ‰§è¡Œadb shell,å†æ‰§è¡Œsu,è¿›å…¥è¶…çº§ç”¨æˆ·ç»„
+4. mount -o remount,rw /systemæŒ‚æ¥æ‰‹æœº/systemç›®å½•ä¸ºå¯è¯»å†™,2.3çš„è¯·çœ‹ä¸Šé¢ã€‚
+5. æ‰§è¡Œchmod 777 /systemï¼Œå°†/systemç›®å½•ä¿®æ”¹æˆå¯è¯»å¯å†™
+6. åœ¨çª—å£Bæ‰§è¡Œadb push ***.apk /sdcard/,å°†apkæ–‡ä»¶pushåˆ°æ‰‹æœºsdcardç›®å½•
+7. æ‰§è¡Œmv ***.apk /system/app/æˆ–mv ***.apk /system/priv-app,å°†apkæ–‡ä»¶æ‹·è´åˆ°ç³»ç»Ÿåº”ç”¨ç›®å½•
+8. æ‰§è¡Œchmod 644 ***.apk,ä¿®æ”¹***.apkçš„æƒé™
+9. æ‰§è¡Œchown root:root ***.apkä¿®æ”¹***.apkçš„ä½¿ç”¨è€…å’Œæ‹¥æœ‰è€…,2.3çš„è¯·çœ‹ä¸Šé¢ã€‚
+10. é‡æ–°å¯åŠ¨æ‰‹æœº
